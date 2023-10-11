@@ -1,0 +1,148 @@
+<header class="header">Thêm mới hồ sơ đoàn vào</header>
+
+<div>
+    <form>
+        <div class="form-group row">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Mã đoàn vào</label>
+            <div class="col-sm-10">
+                <input class="form-control form-control-sm" id="colFormLabelSm">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Tên đoàn vào</label>
+            <div class="col-sm-10">
+                <input class="form-control form-control-sm" id="colFormLabelSm">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Cơ quan</label>
+            <div class="col-sm-10">
+                <input class="form-control form-control-sm" id="colFormLabelSm">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label col-form-label-sm">Quốc gia</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option></option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label col-form-label-sm">Mục đích hoạt động</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option></option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Ngày nhập cảnh</label>
+                <div class="col-sm-10">
+                    <input class="" type="date" id="colFormLabelSm" value="02/02/1111">
+                    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Ngày xuất cảnh</label>
+                    <input class="" type="date" id="colFormLabelSm">
+                </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Số ngày ở tại Việt Nam</label>
+                <div class="col-sm-10">
+                    <input class="" id="colFormLabelSm">
+                </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Nơi lưu trú</label>
+            <div class="col-sm-10">
+                <input class="form-control form-control-sm" id="colFormLabelSm">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">An ninh chăm sóc sức khỏe</label>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Cảnh sát dẫn đường
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Tiếp cận trưởng đoàn
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Xe y tế tháp tùng
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Xe y tế đón, tiễn
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                      Bác sĩ tháp tùng đi địa phương
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Số lượng thành viên trong đoàn</label>
+                <div class="col-sm-10">
+                    <input class="" id="colFormLabelSm"> người
+                </div>
+        </div>
+    </form>
+    <h1>Hồ sơ đính kèm</h1>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Đề án</label>
+            <input class="form-control" type="file" id="formFile">
+        </div>
+        <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Lãnh đạo tiếp đoàn</label>
+            <table>
+                <tr>
+                    <th>STT</th>
+                    <th>Họ và tên</th>
+                </tr>
+                <tr *ngFor="let row of rows1">
+                    <td>
+                        <input type="text" ng-model="row.id" />
+                    </td>
+                    <td>
+                        <input type="text" ng-model="row.name" />
+                    </td>
+                </tr>
+            </table>
+            <button (click)="addRow1()">add row</button>
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Lãnh đạo tiếp đoàn</label>
+            <table>
+                <tr>
+                    <th>STT</th>
+                    <th>Địa phương</th>
+                </tr>
+                <tr *ngFor="let row of rows2">
+                    <td>
+                        <input type="text" ng-model="row.id" />
+                    </td>
+                    <td>
+                        <input type="text" ng-model="row.name" />
+                    </td>
+                </tr>
+            </table>
+            <button (click)="addRow2()">add row</button>
+            <button class="button">Lưu lại</button>
+            <button class="button">Quay lại</button>
+</div>

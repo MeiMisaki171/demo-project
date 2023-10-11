@@ -1,0 +1,97 @@
+<header class="header">QUẢN LÝ HỒ SƠ ĐOÀN VÀO</header>
+
+<div class="nav-bar">
+    <a href="/home"><i class="bi bi-house-fill"></i></a> &nbsp;/ 
+    <a href="/a"> &nbsp;Quản lý đón đoàn nước ngoài thăm, làm việc(đoàn vào) </a>&nbsp;/
+    <a href="/b">&nbsp;Quản lý hồ sơ đoàn vào</a>
+</div>
+
+<div class="form-wrapper">
+    <div class="form-input">
+        <div class="col-sm-6 ">
+            <div class="input-contener">
+                <div class="c1">Quốc gia</div>
+                <div><input placeholder="Quốc gia"></div>
+            </div>
+            <div class="input-contener">
+                <div class="c1">Thời gian</div>
+                <div><input placeholder="Thời gian"></div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="input-contener">
+                <div class="c2">Mục đích hoạt động</div> 
+                <div><input placeholder="Mục đích hoạt động"></div>
+            </div>
+            <div class="input-contener">
+                <div class="c2">Tên đoàn vào</div> 
+                <div><input placeholder="Tên đoàn vào"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="submit">
+    <button class="button">Tra cứu</button>
+    <button class="button">Thêm mới</button>
+</div>
+
+<div class="content-wrapper">
+    <b>Tổng số hồ sơ đoàn vào: {{items.length}}</b>
+    <table class="table table-bordered table-hover"> 
+        <thead>
+            <tr>
+                <th *ngFor="let column of headers" scope="col" class="text-center" style="background-color: blueviolet; color: #fff;">{{column}}</th>
+                <th scope="col" class="text-center" style="background-color: blueviolet; color: #fff;">Thao tác</th>
+            </tr>
+        </thead>
+    
+        <tbody>
+            <tr *ngFor = "let item of items | paginate: {itemsPerPage: itemPerPage, currentPage: page, totalItems:totalLength}">  
+                <td class="text-center">{{item.id}}</td>
+                <td>{{item.MDR}}</td>
+                <td>{{item.TDR}}</td>
+                <td>{{item.CQ}}</td>
+                <td>{{item.QGD}}</td>
+                <td>{{item.MD}}</td>
+                <td class="text-center">{{item.NXNC}}</td>
+                <td class="text-center">{{item.TVD}}</td>
+                <td class="text-center"> # $ %</td>
+            </tr>
+        </tbody>
+    </table> 
+    
+    <div class="clearfix">
+        <pagination-template 
+            #p="paginationApi"
+            [maxSize]="5"
+            (pageChange)="page = $event"
+        >
+            <div class="custom-pagination d-flex justify-content-center">
+                <div class="pagination-previous" [class.disabled]="p.isFirstPage()">
+                    <a  (click)="p.previous()"> <i class="bi bi-chevron-double-left"></i> </a>
+                </div>
+
+                <div 
+                    *ngFor="let page of p.pages" 
+                    [class.current]="p.getCurrent() === page.value"
+                >
+                    <a 
+                        (click)="p.setCurrent(page.value)" 
+                        *ngIf="p.getCurrent() !== page.value"
+                    >
+                        <span>{{ page.label }}</span>
+                        
+                    </a>
+                    <div *ngIf="p.getCurrent() === page.value">
+                        <span>{{ page.label }}</span>
+                    </div>
+                </div>
+
+                <div class="pagination-next" [class.disabled]="p.isLastPage()">
+                    <a *ngIf="!p.isLastPage()" (click)="p.next()"> <i class="bi bi-chevron-double-right"></i> </a>
+                </div>
+            </div>
+        </pagination-template>
+        <div class="d-flex justify-content-end">Trang {{page}} of {{totalPages}}</div>
+    </div>
+</div> 

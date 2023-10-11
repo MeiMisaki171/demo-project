@@ -1,0 +1,29 @@
+
+.input-contener {
+  height: 50px;
+  margin: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-left: 40px;
+}
+.c1 {
+  display: flex;
+  width: 100px;
+}
+.c2 {
+  display: flex;
+  width: 200px;
+}
+input {
+  height: 35px;
+  width: 600px;
+  position: relative;
+}
+
+.content-wrapper {
+    max-width: 100%;
+    background-color: #fff;
+    height: 100vh;
+}
